@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerView">
+        <!--指示器和底部的距离-->
+        <attr name="margin_bottom" format="dimension"/>
+        <!--选中的资源-->
+        <attr name="select_background" format="reference"/>
+        <!--未选中的资源-->
+        <attr name="un_select_background" format="reference"/>
+        <!--水平间距-->
+        <attr name="horizontal_space" format="dimension"/>
+        <!--指示器的位置-->
+        <attr name="gravity" format="integer"/>
+        <!--是否自动轮播-->
+        <attr name="isBanner" format="boolean"/>
+    </declare-styleable>
+</resources>
