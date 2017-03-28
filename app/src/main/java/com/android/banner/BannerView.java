@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.AttrRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -133,11 +134,11 @@ public class BannerView<T> extends FrameLayout {
         mHorizontalSpace = horizontalSpace;
     }
 
-    public void setSelectBackgroundId (int selectBackgroundId) {
+    public void setSelectBackgroundId (@DrawableRes int selectBackgroundId) {
         mSelectBackgroundId = selectBackgroundId;
     }
 
-    public void setUnSelectBackgroundId (int unSelectBackgroundId) {
+    public void setUnSelectBackgroundId (@DrawableRes int unSelectBackgroundId) {
         mUnSelectBackgroundId = unSelectBackgroundId;
     }
 
@@ -202,13 +203,13 @@ public class BannerView<T> extends FrameLayout {
         TypedArray typedArray = context.obtainStyledAttributes (attrs, R.styleable.BannerView);
         mMarginBottom = typedArray.getDimension (R.styleable.BannerView_margin_bottom, 5);
         mHorizontalSpace = typedArray.getDimension (R.styleable.BannerView_horizontal_space, 3);
-        mSelectBackgroundId =
-            typedArray.getResourceId (R.styleable.BannerView_select_background, R.drawable.icon_point_select);
+        mSelectBackgroundId = typedArray.getResourceId (R.styleable.BannerView_select_background,
+            R.drawable.icon_point_select);
         mUnSelectBackgroundId =
             typedArray.getResourceId (R.styleable.BannerView_un_select_background,
                 R.drawable.icon_point_un_select);
-        mGravity =
-            typedArray.getInt (R.styleable.BannerView_gravity, Gravity.CENTER | Gravity.BOTTOM);
+        mGravity = typedArray.getInt (R.styleable.BannerView_gravity,
+            Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
 
         mIsBanner = typedArray.getBoolean (R.styleable.BannerView_isBanner, true);
         typedArray.recycle ();

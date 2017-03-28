@@ -9,8 +9,23 @@
         <attr name="un_select_background" format="reference"/>
         <!--水平间距-->
         <attr name="horizontal_space" format="dimension"/>
-        <!--指示器的位置-->
-        <attr name="gravity" format="integer"/>
+        <!--指示器的位置,根据系统中Gravity中的属性值取值-->
+        <attr name="gravity" >
+            <flag name="TOP" value="48"/>
+            <flag name="BOTTOM" value="80"/>
+            <flag name="LEFT" value="3"/>
+            <flag name="RIGHT" value="5"/>
+            <flag name="CENTER_VERTICAL" value="16"/>
+            <flag name="FILL_VERTICAL" value="112"/>
+            <flag name="CENTER_HORIZONTAL" value="1"/>
+            <flag name="FILL_HORIZONTAL" value="7"/>
+            <flag name="CENTER" value="17"/>
+            <flag name="FILL" value="119"/>
+            <flag name="CLIP_VERTICAL" value="128"/>
+            <flag name="CLIP_HORIZONTAL" value="8"/>
+            <flag name="START" value="8388611"/>
+            <flag name="END" value="8388613"/>
+        </attr>
         <!--是否自动轮播-->
         <attr name="isBanner" format="boolean"/>
     </declare-styleable>

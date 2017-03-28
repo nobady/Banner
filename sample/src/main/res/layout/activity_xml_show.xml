@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.android.banner.BannerView
+        android:id="@+id/bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:horizontal_space="7dp"
+        app:isBanner="true"
+        app:margin_bottom="15dp"
+        app:select_background="@drawable/select_shape"
+        app:un_select_background="@drawable/shape_un_select"
+        app:gravity="END|BOTTOM"
+        />
+</LinearLayout>
