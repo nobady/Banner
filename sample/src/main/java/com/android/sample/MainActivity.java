@@ -3,11 +3,11 @@ package com.android.sample;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 import com.android.banner.BannerAdapter;
 import com.android.banner.BannerView;
 import com.android.banner.BannerViewCreator;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         mBannerView.setOnPageItemClickListener (new BannerAdapter.OnPageItemClickListener<Integer> () {
             @Override public void onPageClick (int position, Integer data) {
-                Log.e ("TAG","点击了"+position);
+                Toast.makeText (MainActivity.this,position+"被点击",Toast.LENGTH_SHORT).show ();
             }
         });
     }
