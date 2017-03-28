@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -261,6 +260,17 @@ public class BannerView<T> extends FrameLayout {
         });
         /*监听viewpager的页面改变*/
         mViewPager.addOnPageChangeListener (new ViewPager.SimpleOnPageChangeListener () {
+            private int oldPosition = 0;
+            /*判断是否是手动滑动*/
+            private boolean isAutoScroll = false;
+
+            @Override public void onPageScrollStateChanged (int state) {
+                /*当手动翻页时，记录当前的item位置*/
+                if (state == ViewPager.SCROLL_STATE_DRAGGING){
+                    oldPosition = mViewPager.getCurrentItem ()-1;
+                    isAutoScroll = true;
+                }
+            }
             @Override public void onPageSelected (int position) {
                 super.onPageSelected (position);
                 /*因为在adapter中，其实是在集合的首尾各添加了一个对象，目的是在最后一个
@@ -274,9 +284,13 @@ public class BannerView<T> extends FrameLayout {
                 }
                 /*改变指示器的UI*/
                 int newPosition = mViewPager.getCurrentItem () - 1;
-                int oldPosition = newPosition - 1;
-                if (newPosition == 0) {
-                    oldPosition = mAdapter.getCount () - 2 - 1;
+                if (!isAutoScroll){
+                    oldPosition = newPosition - 1;
+                    if (newPosition == 0) {
+                        oldPosition = mAdapter.getCount () - 2 - 1;
+                    }
+                }else {
+                    isAutoScroll = false;
                 }
                 changedIndicator (oldPosition, newPosition);
             }
@@ -291,6 +305,7 @@ public class BannerView<T> extends FrameLayout {
             Field scroller = ViewPager.class.getDeclaredField ("mScroller");
             scroller.setAccessible (true);
             mScroll = new ViewPagerScroller (mContext);
+            mScroll.setScrollDuration (50);
             scroller.set (mViewPager, mScroll);
         } catch (NoSuchFieldException e) {
             e.printStackTrace ();
@@ -334,7 +349,6 @@ public class BannerView<T> extends FrameLayout {
      * 根据集合的大小创建指示器的点
      */
     private void createIndicator (List<T> datas) {
-        Log.e ("TAG", "size = " + datas.size ());
         for (int i = 0, size = datas.size (); i < size; i++) {
             int item = mViewPager.getCurrentItem () - 1;
             ImageView imageView = new ImageView (mContext);

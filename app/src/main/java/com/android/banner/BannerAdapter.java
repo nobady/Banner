@@ -66,7 +66,7 @@ public class BannerAdapter<T> extends PagerAdapter {
         view.setOnClickListener (new View.OnClickListener () {
             @Override public void onClick (View v) {
                 if (mPageItemClickListener!=null){
-                    mPageItemClickListener.onPageClick (position,mDatas.get (position));
+                    mPageItemClickListener.onPageClick (position-1,mDatas.get (position));
                 }
             }
         });

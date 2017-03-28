@@ -36,9 +36,10 @@ public class XmlShowActivity extends AppCompatActivity {
         datas.add (R.drawable.th5);
 
         mBannerView = (BannerView<Integer>) findViewById (R.id.bannerView);
-        mBannerView.setScrollDuration (50);
+        mBannerView.setScrollDuration (100);
         mBannerView.setPageDataView (new BannerViewCreator<Integer> () {
             @Override public View createBannerView (Context context, int position, Integer data) {
+                //返回每个item要显示的view
                 ImageView imageView = new ImageView (context);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams (
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);

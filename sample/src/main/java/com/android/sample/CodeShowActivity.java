@@ -32,6 +32,7 @@ public class CodeShowActivity extends AppCompatActivity {
         datas.add (R.drawable.th3);
         datas.add (R.drawable.th4);
         datas.add (R.drawable.th5);
+
         /*需要先将属性设置完成，才能设置数据*/
         BannerView bannerView = new BannerView (this);
         bannerView.setGravity (Gravity.CENTER);
