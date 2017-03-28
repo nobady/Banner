@@ -29,8 +29,9 @@
 - un_select_background：指示器item未选中的资源id
 - gravity：指示器显示的位置
 
-  然后在布局中获取实例，设置数据和itemview
-    
+然后在布局中获取实例，设置数据和itemview
+  
+
 	`mBannerView = (BannerView<Integer>) findViewById (R.id.bannerView);
         mBannerView.setScrollDuration (50);
         mBannerView.setPageDataView (new BannerViewCreator<Integer> () {
