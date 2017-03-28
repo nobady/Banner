@@ -70,4 +70,5 @@
         ll.addView (bannerView);`
     
 **注意：**必须要在设置属性完成之后调用setPageDataView方法，否则第一次显示的时候，会出现默认的属性值的情况
+
 [博客链接-http://blog.csdn.net/hello_word_1024/article/details/67636891](http://blog.csdn.net/hello_word_1024/article/details/67636891)
